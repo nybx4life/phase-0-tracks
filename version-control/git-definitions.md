@@ -22,3 +22,5 @@ has been changed since the last commit.
 
 Merge conflicts happen when separate branches make similar edits to the same file, such as
 making changes to the title tag of an HTML page.
+
+Hi
