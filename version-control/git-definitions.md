@@ -13,3 +13,5 @@ A commit is kind of like saving the changes you just made. A good commit message
 
 * What is a merge conflict?
 A merge conflict is when some sort of error occurs when trying to merge different versions of code together. It seems like there can be quite a few reasons for this. One possibility is when there are two separate versions which modified the same code are trying to merge. This seems like it is one of the most common problems in software development and I look forward to learning how to ease merge conflicts.
+
+Here is my small change.
