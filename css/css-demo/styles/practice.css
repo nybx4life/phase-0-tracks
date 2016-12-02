@@ -1,0 +1,22 @@
+#contact-info {
+  font-size: .8em;
+}
+
+.job {
+  background-color: #e9e5dc;
+  border-radius: 3px;
+  margin-top: 3px;
+  padding: 1px;
+}
+
+.fancy {
+  font-size: .8em;
+}
+
+h1:hover{
+  color:orange;
+}
+
+ul:hover li {
+  color:blue;
+}
