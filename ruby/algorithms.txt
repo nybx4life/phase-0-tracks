@@ -1,0 +1,40 @@
+Using an elevator:
+1. Identify current floor
+	-Use number on elevator door frame to identify the current floor.
+2. Identify target floor
+	-If target floor is a number larger than current floor, press top button.
+	**Mark floors labelled as "L" or "lobby" for floor#1. Mark floors labelled as "B" or 
+	"basement" as floor#0.
+	-Else press bottom button.
+3. Wait for elevator door to open.
+		-Once one of two elevator buttons has been pressed, wait for elevator doors to open.
+4. Enter elevator
+	-Enter elevator once elevator doors open. Press button for target floor.
+5. Wait for elevator to arrive at target floor.
+	- Wait for one of three cues to determine when to leave through open elevator doors:
+	a. Display inside elevator reads the target floor, elevator is stopped, and doors are open.
+	b. Elevator approaches target floor, voice speaks the target floor, elevator is stopped,
+	and doors are open.
+	c. Elevators stop, doors are open, and door frame states target floor.
+6. Exit elevator.
+	-Exit the elevator completely.
+	
+	
+	
+Eating cereal:
+1. Acquire bowl from cabinet
+2. Acquire spoon from cabinet
+3. Acquire cereal from cabinet
+4. Acquire milk from refrigerator
+	-Examine date of milk. If current date has exceeded expiration date, discard milk in
+	sink and terminate algorithm.
+5. Place all items on a table, ensuring there is sufficient space to place each item without 
+overlap.
+6. Open box of cereal and pour desired amount into bowl. 
+7. Close box of cereal when desired amount has been reached.
+8. Open bottle of milk and slowly pour contents into bowl until desired amount has been reached.
+9. When amount has been reached, close bottle of milk.
+10. Return box of cereal and bottle of milk to their original locations.
+11. Pick up spoon from table.
+12. Place spoon in bowl of cereal.
+13. Enjoy cereal.
