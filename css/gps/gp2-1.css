@@ -1,0 +1,39 @@
+html {
+  background-image: url("https://avatars3.githubusercontent.com/u/583231?v=3&s=400")
+}
+header{
+  background-color: orange;
+}
+
+h1, h2{
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+
+.column-1{
+  background-color: blue;
+  width: 45%;
+  float: left;
+  font-family: Helvetica;
+}
+
+li{
+  list-style-type: none;
+}
+
+a:link{
+  color: red;
+}
+
+.column-2{
+  background-color: red;
+  width:45%;
+  float: right;
+  font-family: Times New Roman;
+}
+
+footer{
+  background-color: yellow;
+  clear: both;
+}
