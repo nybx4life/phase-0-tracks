@@ -1,0 +1,15 @@
+Walk up to the entrance of the elevator and press the elevator button.
+When the elevator door opens, look for a spot in the elevator where there isn't a person, if there is an open spot in front of the floor buttons, go there and face the floor buttons, otherwise, if there is an open spot in the elevator, walk to that spot. If there are no open spots, wait for the elevator door to close, then wait an additional 5 seconds before pressing the elevator button again and repeating this process.
+
+If you're in the elevator and in front of the floor buttons, check which floor you wish to be dropped off at, and press the button. Otherwise, find which floor you wish to be dropped off at, and speak "Please press x floor".
+
+Once the elevator reads that it is at your floor, and the door opens, if you have a clear path without any people through the door, walk out the elevator door onto your floor. If anyone is blocking your path, kindly say "Excuse me", do not exit the elevator until you have a clear path out the elevator doors.
+
+**Brushing my teeth**
+Identify the quickest path to the bathroom. Once at the bathroom door, if it is open, walk in. If it is closed, knock on the door. Wait 3 seconds, if you don't hear anyone answer, walk in. If someone answers, go do something else and return at a later time.
+
+Once in the bathroom, walk up to where the toothbrushes are. Find the toothpaste, and undo the cap, and keep the toothpaste without a cap in your left hand. Take your toothbrush in your right hand, take toothpaste and smear some onto the tip of the toothbrush. 
+
+Put the end of the toothbrush into your mouth, and hold it there with your teeth, let go of the toothbrush with your right hand, allowing the toothbrush to be held in your mouth. Then, put the cap back and the toothpaste and return it to its previous position. Then, use your right hand to vigorously move the toothbrush back and forth across your teeth. For every area, brush all three sides of your teeth. Start in the lower left area, and move towards the lower right, eventually to the top right, and then the top left area. 
+
+After two minutes, spit all the toothpaste out, and rinse the tip of your toothbrush. Put your toothbrush back the way you found it. Exit the bathroom and announce "I've just brushed my teeth!"
