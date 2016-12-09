@@ -66,4 +66,5 @@ until employee_counter == total_employees
 	employee_counter += 1
 end
 
+#All that work and we're just going to be friends with these vampires!
 puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
