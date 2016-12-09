@@ -14,9 +14,9 @@ until employee_counter == total_employees
 	puts "What year were you born?"
 	birth_year = gets.chomp
 	birth_year = birth_year.to_i
-	puts "Should we order you some garlic bread?"
+	puts "Should we order you some garlic bread (yes or no)?"
 	g_bread = gets.chomp
-	puts "Would you like to enroll in the company's health insurance?"
+	puts "Would you like to enroll in the company's health insurance (yes or no)?"
 	h_insurance = gets.chomp
 
 	current_year = 2016;
@@ -65,3 +65,5 @@ until employee_counter == total_employees
 	puts "#{results}"
 	employee_counter += 1
 end
+
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
