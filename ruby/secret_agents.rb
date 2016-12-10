@@ -20,7 +20,7 @@ while counter < stringVar.length
 counter += 1
 end
 puts stringVar
-stringVar = stringVar.to_s #had to put this in for the swordfish to work properly
+stringVar = stringVar.to_s #had to put this in for the swordfish call to work properly
 end
 
 
@@ -44,7 +44,7 @@ while counter < stringVar.length
 	counter += 1
 end
 puts stringVar
-stringVar = stringVar.to_s #had to put this in for the swordfish to work properly
+stringVar = stringVar.to_s #had to put this in for the swordfish call to work properly
 end
 # encrypt("abc")
 # decrypt("bcd") 
