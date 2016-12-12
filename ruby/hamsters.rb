@@ -1,3 +1,5 @@
+#File worked on with karl_thomas
+
 puts "Estimated age: "
 hamster_age = gets.to_i
 
