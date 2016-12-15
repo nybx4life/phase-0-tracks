@@ -11,7 +11,7 @@ def next_vowel (vowel)
 	map = "aeiou"
 	map = map.split('')
 	vowel = map.index(vowel)
-	# using map.length -1 instead of 4 so map can dynamically change & still work
+	# handling the corner case, allows for map to change & it would still wrap around
 	if vowel == map.length - 1
 		vowel = map[0]
 	else
@@ -23,7 +23,7 @@ def next_consonant (consonant)
 	map = "bcdfghjklmnpqrstvwxyz"
 	map = map.split('')
 	consonant = map.index(consonant)
-	# using map.length - 1 instead of 20 so map can dynamically change & still work
+	# handling the corner case, allows for map to change & it would still wrap around
 	if consonant == map.length - 1
 	  consonant = map[0]
 	else 
@@ -31,34 +31,62 @@ def next_consonant (consonant)
 	end
 end
 
-# getting our spy's name, swapping the first & last name, and putting them into
-# separate arrays
-puts "What is our spy's real name?"
-real_name = gets.chomp
-real_name.downcase!
-real_name = real_name.split (' ')
-real_name.reverse!
-first_name = real_name[0].chars
-last_name = real_name[1].chars
+# initialize original name & fake name arrays to store the data
+orig_name_array = []
+fake_name_array = []
 
-first_name.map! {|vowel_or_cons|
-	if vowel_or_cons == "a" || vowel_or_cons == "e" || vowel_or_cons == "i" || vowel_or_cons == "o" || vowel_or_cons == "u"
-		next_vowel(vowel_or_cons)
+# initialize counter variable which will allow original name & fake name to be indexed properly
+counter = 0
+
+active_usage = true
+while active_usage
+	puts "Enter a real name to get a fake name back, type \"quit\" when finished."
+	name = gets.chomp
+	if name == "quit"
+		array_counter = 0
+		while array_counter < orig_name_array.length
+			puts "#{orig_name_array[array_counter]} is actually #{fake_name_array[array_counter]}"
+			array_counter += 1
+		end
+		active_usage = false
 	else
-		next_consonant(vowel_or_cons)
-	end
-}
+		original_name = name
+		orig_name_array[counter] = name # assigning original name to its appropriate array/index
+		name.downcase!
+		
+		# making an array of two indexes, index 0 being first name, index 1 being the last name
+		name = name.split (' ')
+		name.reverse!
 
-last_name.map! {|vowel_or_cons|
-	if vowel_or_cons == "a" || vowel_or_cons == "e" || vowel_or_cons == "i" || vowel_or_cons == "o" || vowel_or_cons == "u"
-		next_vowel(vowel_or_cons)
-	else
-		next_consonant(vowel_or_cons)
-	end
-}
+		# creating new separate arrays for first name & last name, with each char being an index
+		first_name = name[0].chars
+		last_name = name[1].chars
 
-real_name = "#{first_name.join.capitalize} " + "#{last_name.join.capitalize}"
-p real_name
+		# iterating through first name array, calling the appropriate method for each index
+		first_name.map! {|vowel_or_cons|
+			if vowel_or_cons == "a" || vowel_or_cons == "e" || vowel_or_cons == "i" || vowel_or_cons == "o" || vowel_or_cons == "u"
+				next_vowel(vowel_or_cons)
+			else
+				next_consonant(vowel_or_cons)
+			end
+		}
+
+		# iterating through the last name array, calling the appropriate method for each index
+		last_name.map! {|vowel_or_cons|
+			if vowel_or_cons == "a" || vowel_or_cons == "e" || vowel_or_cons == "i" || vowel_or_cons == "o" || vowel_or_cons == "u"
+				next_vowel(vowel_or_cons)
+			else
+				next_consonant(vowel_or_cons)
+			end
+		}
+
+		# getting the finalized fake name
+		name = "#{first_name.join.capitalize} " + "#{last_name.join.capitalize}"
+		fake_name_array[counter] = name # assigning fake name to appropriate array/index
+		counter += 1
+	end
+
+end
 
 
 
