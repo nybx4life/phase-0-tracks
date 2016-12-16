@@ -15,8 +15,8 @@ end
 arr = [42, 89, 23, 1]
 search_array(arr, 23)
 
-make loop so it keeps running while the length of the array is less than the input argument
-take the last two indexes of the array, add them together, and add that value to the end of the array
+# make loop so it keeps running while the length of the array is less than the input argument
+# take the last two indexes of the array, add them together, and add that value to the end of the array
 
 def fib(total_terms)
 	fibonacci = [0, 1] # initalize array of size two
