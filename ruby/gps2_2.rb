@@ -77,7 +77,7 @@ def print_list (list)
 	list.each { |item, quantity| puts "#{item}, qty: #{quantity}" }
 end
 
-
+# You have to manually put in Lemonade, Ice Cream, Tomatoes, Onions, done to test this out
 test_list = create_list
 update_quantity(test_list, "Lemonade", 2)
 update_quantity(test_list, "Tomatoes", 3)
