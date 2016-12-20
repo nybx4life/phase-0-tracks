@@ -25,52 +25,68 @@
 # input: list
 # steps: Iterate through the list, printing each key, along with each value, in a pleasing way
 # output: the shopping list, along with the corresponding quantities of each item
+
+# Method to get user list
+# input: none
+# steps: 
   
-def create_list(input_string)
-	shopping_list = {}
- 	input_string.split(' ').each { |item| shopping_list[item] = 1 }
- 	print_list(shopping_list)
- 	shopping_list
- 	list = {}
- 	input_string.split(' ').each { |item| list[item] = 1 }
- 	print_list(list)
- 	list
+def get_user_list
+	puts "Please give me your shopping list, enter your items one at a time, and press \"done\" when finished."
+	shopping_bool = true
+	list_array = []
+	counter = 0
+		while shopping_bool
+			item = gets.chomp
+			if item == "done"
+				shopping_bool = false
+			else
+				list_array[counter] = item
+				counter +=1
+			end
+		end
+		list_array
+end
+
+def create_list
+	list = {}
+	get_user_list.each { |item| list[item] = 1 }
+	print_list(list)
+	list
 end
  
 def add_item(list, item_name, optional_quantity = 1)
- 	list[item_name] = optional_quantity
- 	puts "#{item_name} was added to the list."
- 	print_list(list)
+	list[item_name] = optional_quantity
+	puts "#{item_name} was added to the list."
+	print_list(list)
 end
- 
+
 def remove_item(list, item_name)
- 	list.delete(item_name)
- 	puts "#{item_name} was deleted from the list."
- 	print_list(list)
+	list.delete(item_name)
+	puts "#{item_name} was deleted from the list."
+	print_list(list)
 end
- 
+
 def update_quantity(list, item_name, new_quantity)
- 	list[item_name] = new_quantity
- 	puts "#{item_name}'s quantity was updated."
- 	print_list(list)
+	list[item_name] = new_quantity
+	puts "#{item_name}'s quantity was updated."
+	print_list(list)
 end
-  
+
 def print_list (list)
- 	puts "Current shopping list:"
- 	list.each { |item, quantity| puts "#{item}, qty: #{quantity}" }
+	puts "Current shopping list:"
+	list.each { |item, quantity| puts "#{item}, qty: #{quantity}" }
 end
-  
- list_string = "carrots apples cereal pizza"
- test_var = create_list(list_string)
- list_string = "Lemonade Tomatoes Onions Ice_Cream"
- test_list = create_list(list_string)
- update_quantity(test_list, "Lemonade", 2)
- update_quantity(test_list, "Tomatoes", 3)
- update_quantity(test_list, "Ice_Cream", 4)
- remove_item(test_list, "Lemonade")
- update_quantity(test_list, "Ice_Cream", 1)
- print_list(test_list)
- 
+
+
+test_list = create_list
+update_quantity(test_list, "Lemonade", 2)
+update_quantity(test_list, "Tomatoes", 3)
+update_quantity(test_list, "Ice Cream", 4)
+remove_item(test_list, "Lemonade")
+update_quantity(test_list, "Ice Cream", 1)
+print_list(test_list)
+
+
  # So I did learn a lot about how to actually structure pseudocode on this challenge, and maybe how specific
  # to get at certain times, or what terminology to use, and how to really just pseudo code in general. Being
  # inexperienced with pseudocode, I've definitely seen a lot of grey area with it, and this cleared a lot of 
