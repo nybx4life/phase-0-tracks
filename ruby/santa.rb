@@ -1,10 +1,13 @@
 class Santa
+	attr_reader :ethnicity, :reindeer_ranking
+	attr_accessor :gender, :age
+
 	def speak
 		puts "Ho, ho, ho! Haaaappy holidays!"
 	end
 
 	def introduction
-		puts "Hello, I'm a Santa instance, my gender is #{@gender}, and my ethnicity is #{@ethnicity}"
+		puts "Hello, I'm a new Santa instance, my gender is #{@gender}, my ethnicity is #{@ethnicity}, and I'm #{@age} years old!"
 	end
 
 	def eat_milk_and_cookies(cookie_type)
@@ -28,28 +31,6 @@ class Santa
 		@reindeer_ranking.delete(reindeers_name)
 		@reindeer_ranking << reindeers_name
 	end
-
-
-	#Setter method
-	def gender= (reassigned_gender)
-		@gender = reassigned_gender
-	end
-
-	#Getter method
-	def age
-		@age
-	end
-
-	#Getter method
-	def ethnicity
-		@ethnicity
-	end
-
-	#Getter method
-	def reindeer_ranking
-		@reindeer_ranking
-	end
-
 end
 
 # bad_santa = Santa.new
@@ -62,25 +43,31 @@ genders_array = ["male", "female", "fendergender", "blendergender", "nogender", 
 ethnicity_array = ["elephant-man", "asian", "Middle Eastern", "black", "white", 
 	"Eastern European", "Mexican-American", "N/A"]
 
-genders_array.length.times do |counter|
-	santas << Santa.new(genders_array[counter], ethnicity_array[counter])
+200.times do
+	new_santa = Santa.new(genders_array[rand(genders_array.length + 1)], ethnicity_array[rand(ethnicity_array.length + 1)])
+	new_santa.age = rand(141)
+	new_santa.introduction
 end
 
-santas.each do |santa_instances|
-	santa_instances.speak
-	santa_instances.introduction
-end
+# genders_array.length.times do |counter|
+# 	santas << Santa.new(genders_array[counter], ethnicity_array[counter])
+# end
 
-puts "Santa[0]'s age before celebrating birthday"
-5.times do santas[0].celebrate_birthday end
-puts "Santa[0]'s age after celebrating 5 birthdays"
-p santas[0].age
+# santas.each do |santa_instances|
+# 	santa_instances.speak
+# 	santa_instances.introduction
+# end
 
-puts "Before get_mad_at(Dasher) runs"
-p santas[0].reindeer_ranking
-santas[0].get_mad_at("Dasher")
-puts "After get_mad_at(Dasher) runs"
-p santas[0].reindeer_ranking
+# puts "Santa[0]'s age before celebrating birthday"
+# 5.times do santas[0].celebrate_birthday end
+# puts "Santa[0]'s age after celebrating 5 birthdays"
+# p santas[0].age
 
-santas[0].gender = "Newly reassigned"
-santas[0].introduction
+# puts "Before get_mad_at(Dasher) runs"
+# p santas[0].reindeer_ranking
+# santas[0].get_mad_at("Dasher")
+# puts "After get_mad_at(Dasher) runs"
+# p santas[0].reindeer_ranking
+
+# santas[0].gender = "Newly reassigned"
+# santas[0].introduction
