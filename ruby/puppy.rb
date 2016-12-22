@@ -19,28 +19,28 @@ class Puppy
         puts "Initializing new puppy instance..."
     end
 
- def fetch(toy)
-   puts "I brought back the #{toy}!"
-   toy
- end
+    def fetch(toy)
+        puts "I brought back the #{toy}!"
+        toy
+    end
 
- def speak(num)
-     num.times do
-         puts "Woof!"
-     end
- end
+    def speak(num)
+        num.times do
+            puts "Woof!"
+        end
+    end
 
- def roll_over
-     puts "*rolls over*"
- end
+    def roll_over
+        puts "*rolls over*"
+    end
 
- def dog_years(num)
-     num/7
- end
+    def dog_years(num)
+        num/7
+    end
 
- def dog_sits
-     puts "*sits down*"
- end
+    def dog_sits
+        puts "*sits down*"
+    end
 
 end
 
