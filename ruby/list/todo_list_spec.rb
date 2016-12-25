@@ -1,3 +1,7 @@
+#first error
+require_relative 'todo_list'
+
+#declare class TodoList
 describe TodoList do
   let(:list) { TodoList.new(["do the dishes", "mow the lawn"]) }
 
