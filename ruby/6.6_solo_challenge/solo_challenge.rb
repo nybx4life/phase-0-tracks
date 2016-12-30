@@ -1,36 +1,10 @@
-# create game class
-# take_word method 
-	# input: taking player 1 string, turns it into an array of chars & assign it
-	# output: an array of chars
-
-# valid_guess? method to check if player 2's guess is a repeat or not
-	# input: player 2's guess
-	# function: Compare player 2's first guess with previous guesses
-	# output: true or false, true if is not a repeat, false if it is a repeat
-
-# feedback method
-	# function: print the current state of the board
-	# check if there is a win or a loss, and print congratulatory method or taunting message if so
-	# otherwise, message how many turns are remaining
-
-# game_time method
-	# input:
-	# function: update the state of the board
-	# output:
-
-
 class Guessing_game
-	attr_accessor :already_guessed, :total_chances, :current_guess, :guess_array
-	attr_reader :current_guess, :is_over
+	attr_accessor :key_word, :guess_array, :already_guessed, :total_chances, :guess_counter
+	attr_reader :is_over
 
-	def initialize(word)
-		@key_word = word.split('')
+	def initialize
 		@guess_array = []
 		@already_guessed = []
-		@key_word.each do |char|
-			@guess_array << "_"
-		end
-		@total_chances = @key_word.length * 2
 		@guess_counter = 0
 		@is_over = false
 	end
@@ -43,32 +17,44 @@ class Guessing_game
 		end
 	end
 
-	def game_time
-		puts "Player 2, please put in your guess:"
-		@current_guess = gets.chomp
-		if valid_guess?(@current_guess)
-			if @key_word.include?(@current_guess)
-				index = @key_word.index(@current_guess)
-				@guess_array[index] = @current_guess
-				@already_guessed << @current_guess
-				@guess_counter += 1
-			else
-				@already_guessed << @current_guess
-				@guess_counter += 1
+	# initializes @total_chances, initializes @guess_array of proper length with all underscores
+	# & changes key word into an array, doesn't seem dry :(
+	def format_key_word(key_word)
+		@total_chances = key_word.length * 2
+		@key_word = key_word.split('')
+		@key_word.each do |char|
+			@guess_array << "_"
+		end
+	end
+
+	def format_guess(p2_guess)
+		if valid_guess?(p2_guess)
+			@already_guessed << p2_guess
+			@guess_counter += 1
+			if @key_word.include?(p2_guess)
+				insert_correct_guess(p2_guess)
 			end
 		else
 			puts "You already made that guess! Guess again, this won't count against you."
 		end
 	end
 
+	def insert_correct_guess(p2_guess)
+		i = 0
+	    while i < @key_word.length
+	    	if @key_word[i] == p2_guess
+	      	@guess_array[i] = p2_guess
+	    	end
+	  	i += 1
+		end
+		@guess_array
+	end
+
+
+
 	def feedback
 		p @guess_array.join(' ')
-		puts "You have #{@total_chances - @guess_counter} guesses left."
-		if @total_chances == @guess_counter
-			end_sequence
-		elsif @guess_array == @key_word
-			end_sequence
-		end
+		p "You have #{@total_chances - @guess_counter} guesses left."
 	end
 
 	def end_sequence
@@ -77,17 +63,27 @@ class Guessing_game
 			p "Congratulations, you won!"
 		else
 			@is_over = true
-			p "You lose, you suck at this game, try harder next time!"
+			p "You lose hahaha! Maybe try harder next time!"
 		end
 	end
+
+
+
 end
 
-puts "Welcome to the guessing game."
-new_game = Guessing_game.new("pie")
-new_game.feedback
-while !new_game.is_over
-	new_game.game_time
+puts "Welcome to the guessing game!"
+new_game = Guessing_game.new
+puts "Player 1, enter the key word you want player 2 to guess:"
+p1_input = gets.chomp
+new_game.format_key_word(p1_input)
+until new_game.is_over
+	puts "Player 2, enter your guess:"
+	p2_input = gets.chomp
+	new_game.format_guess(p2_input)
 	new_game.feedback
+		if new_game.total_chances == new_game.guess_counter || new_game.guess_array == new_game.key_word
+			new_game.end_sequence
+		end
 end
 
 
