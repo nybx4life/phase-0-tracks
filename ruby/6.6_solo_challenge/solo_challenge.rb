@@ -20,11 +20,15 @@ class Guessing_game
 	# initializes @total_chances, initializes @guess_array of proper length with all underscores
 	# & changes key word into an array, doesn't seem dry :(
 	def format_key_word(key_word)
-		@total_chances = key_word.length * 2
+		initialize_total_guesses(key_word)
 		@key_word = key_word.split('')
 		@key_word.each do |char|
 			@guess_array << "_"
 		end
+	end
+
+	def initialize_total_guesses(key_word)
+		@total_chances = key_word.length * 2
 	end
 
 	def format_guess(p2_guess)
@@ -50,24 +54,20 @@ class Guessing_game
 		@guess_array
 	end
 
-
-
 	def feedback
 		p @guess_array.join(' ')
 		p "You have #{@total_chances - @guess_counter} guesses left."
 	end
 
-	def end_sequence
-		if @guess_array == @key_word
-			@is_over = true
-			p "Congratulations, you won!"
-		else
-			@is_over = true
-			p "You lose hahaha! Maybe try harder next time!"
-		end
+	def end_sequence_win
+		@is_over = true
+		p "Congratulations, you won!"
 	end
 
-
+	def end_sequence_loss
+		@is_over = true
+		p "haha you lose, maybe try harder lolz"
+	end
 
 end
 
@@ -81,8 +81,10 @@ until new_game.is_over
 	p2_input = gets.chomp
 	new_game.format_guess(p2_input)
 	new_game.feedback
-		if new_game.total_chances == new_game.guess_counter || new_game.guess_array == new_game.key_word
-			new_game.end_sequence
+		if new_game.guess_array == new_game.key_word
+			new_game.end_sequence_win
+		elsif new_game.total_chances == new_game.guess_counter
+			new_game.end_sequence_loss
 		end
 end
 
