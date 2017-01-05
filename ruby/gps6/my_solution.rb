@@ -1,29 +1,33 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [ with: Sara Gerou ].
+# We spent [1] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# Used to pair files with each other (within same folder).
+# Different from require as we don't need full file path.
 require_relative 'state_data'
+
 
 class VirusPredictor
 
+	#Defines the attributes of VirusPredictor class.
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
+  #Calls two other methods.
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
 
   private
-
-  def predicted_deaths(population_density, population, state)
+	
+	# Returns number of deaths within a state depending on population density.
+  def predicted_deaths
     # predicted deaths is solely based on population density
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
@@ -41,7 +45,8 @@ class VirusPredictor
 
   end
 
-  def speed_of_spread(population_density, state) #in months
+  #Speed of spread defined by population density.
+  def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
@@ -69,7 +74,8 @@ end
 # DRIVER CODE
  # initialize VirusPredictor for each state
 
-
+	#DRY = Least amount of repetition.
+	
 alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
 alabama.virus_effects
 
@@ -82,6 +88,20 @@ california.virus_effects
 alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
 alaska.virus_effects
 
-
+	#######
+	
+	STATE_DATA.each{|state, stat|
+		p state 
+		p stat
+		
+	 VirusPredictor.new(state, stat[:population_density], stat[:population]).virus_effects
+	 
+	 }
+	
 #=======================================================================
 # Reflection Section
+# Hash is shown encased in curly brackets, other hash is shown with arrow.
+# Used to pair files with each other (within same folder). Different from require as we don't need full file path.
+# Use a loop (.each, .times loop, for loops)
+# Argument is not needed for virus_effects.
+# I understand classes and hashes better.
