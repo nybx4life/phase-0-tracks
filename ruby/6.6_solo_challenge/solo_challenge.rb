@@ -17,8 +17,6 @@ class Guessing_game
 		end
 	end
 
-	# initializes @total_chances, initializes @guess_array of proper length with all underscores
-	# & changes key word into an array, doesn't seem dry :(
 	def format_key_word(key_word)
 		initialize_total_guesses(key_word)
 		@key_word = key_word.split('')
@@ -28,7 +26,7 @@ class Guessing_game
 	end
 
 	def initialize_total_guesses(key_word)
-		@total_chances = key_word.length * 2
+		@total_chances = key_word.length + 3
 	end
 
 	def format_guess(p2_guess)
@@ -45,13 +43,12 @@ class Guessing_game
 
 	def insert_correct_guess(p2_guess)
 		i = 0
-	    while i < @key_word.length
-	    	if @key_word[i] == p2_guess
-	      	@guess_array[i] = p2_guess
-	    	end
-	  	i += 1
+		@key_word.each do |char|
+			if char == p2_guess
+				@guess_array[i] = p2_guess
+			end
+			i += 1
 		end
-		@guess_array
 	end
 
 	def feedback
@@ -71,6 +68,7 @@ class Guessing_game
 
 end
 
+# Driver code
 puts "Welcome to the guessing game!"
 new_game = Guessing_game.new
 puts "Player 1, enter the key word you want player 2 to guess:"
