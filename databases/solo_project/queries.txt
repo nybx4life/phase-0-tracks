@@ -1,0 +1,39 @@
+SELECT * FROM users
+
+1|bontgoy_dbc|14|true|3
+2|glenna_dbc|23|true|2
+3|emannuel_dbc|20|false|1
+4|andrew_dbc|38|false|1
+
+----------------------------------------------
+UPDATE users
+SET downloads=16
+WHERE username="bontgoy_dbc";
+
+SELECT users.username, users.downloads, users.verifiedemail, membertiers.level 
+FROM users JOIN membertiers ON users.membershiplevel_id = membertiers.id;
+
+bontgoy_dbc|16|true|gold
+glenna_dbc|23|true|silver
+emannuel_dbc|20|false|bronze
+andrew_dbc|38|false|bronze
+
+
+
+-----------------------------------------------
+SELECT users.username, membertiers.level
+FROM users JOIN membertiers ON users.membershiplevel_id = membertiers.id;
+
+bontgoy_dbc|gold
+glenna_dbc|silver
+emannuel_dbc|bronze
+andrew_dbc|bronze
+
+
+---------------------------------------------
+DELETE FROM users
+WHERE verifiedemail="false";
+SELECT * FROM users;
+
+1|bontgoy_dbc|16|true|3
+2|glenna_dbc|23|true|2
