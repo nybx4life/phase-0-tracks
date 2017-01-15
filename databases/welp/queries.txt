@@ -1,4 +1,21 @@
-sqlite> SELECT reviews.stars, reviews.comment, businesses.name FROM reviews
+SELECT * FROM users INNER JOIN reviews ON users.id = reviews.user_id INNER JOIN businesses ON reviews.business_id = businesses.id;
+
+1|Bradford|Pitt|1|5|Great Food!|1|1|1|Grundy Hollow Wedding Chapel
+2|Mandy|Kaling|2|4|Food was dec|3|2|3|The Beagle Nightclub
+4|Steven|Wonder|3|2|food sucked, ok service|3|4|3|The Beagle Nightclub
+3|Angela|Jolie|4|3|ok good, ok service|3|3|3|The Beagle Nightclub
+------------------------------------------------------------------------
+
+SELECT * FROM reviews INNER JOIN users ON users.id = reviews.user_id INN
+ER JOIN businesses ON reviews.business_id = businesses.id;
+
+1|5|Great Food!|1|1|1|Bradford|Pitt|1|Grundy Hollow Wedding Chapel
+2|4|Food was dec|3|2|2|Mandy|Kaling|3|The Beagle Nightclub
+3|2|food sucked, ok service|3|4|4|Steven|Wonder|3|The Beagle Nightclub
+4|3|ok good, ok service|3|3|3|Angela|Jolie|3|The Beagle Nightclub
+----------------------------------------------------------------------------
+
+SELECT reviews.stars, reviews.comment, businesses.name FROM reviews
 JOIN businesses ON reviews.business_id = businesses.id;
 
 5|Great Food!|Grundy Hollow Wedding Chapel
@@ -6,4 +23,14 @@ JOIN businesses ON reviews.business_id = businesses.id;
 2|food sucked, ok service|The Beagle Nightclub
 3|ok good, ok service|The Beagle Nightclub
 -----------------------------------------------------------------
+
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment
+FROM reviews INNER JOIN reviews ON business.id = reviews.business_id
+INNER JOIN reviews ON users.id = reviews.user_id;
+
+SELECT reviews.stars, reviews.comment, businesses.name FROM reviews
+JOIN businesses ON reviews.business_id = businesses.id
+JOIN users ON reviews.user_id = users.id;
+
+SELECT * FROM reviews INNER JOIN reviews ON users.id = reviews.user_id INNER JOIN businesses ON reviews.business_id = businesses.id;
 
