@@ -1,0 +1,9 @@
+sqlite> SELECT reviews.stars, reviews.comment, businesses.name FROM reviews
+JOIN businesses ON reviews.business_id = businesses.id;
+
+5|Great Food!|Grundy Hollow Wedding Chapel
+4|Food was dec|The Beagle Nightclub
+2|food sucked, ok service|The Beagle Nightclub
+3|ok good, ok service|The Beagle Nightclub
+-----------------------------------------------------------------
+
