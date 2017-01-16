@@ -1,0 +1,33 @@
+1.
+ 1|Magnavox Odyssey|1972|false
+2|Playstation|1995|false
+3|Nintendo 64|1996|false
+4|Xbox One|2013|true
+
+2.  
+UPDATE consoles SET latest="true" WHERE console_name="Magnavox Odyssey";
+sqlite> SELECT * FROM consoles;
+1|Magnavox Odyssey|1972|true
+2|Playstation|1995|false
+3|Nintendo 64|1996|false
+4|Xbox One|2013|true
+
+3.
+sqlite> SELECT * FROM consoles, games WHERE consoles.id = games.console_id;
+1|Magnavox Odyssey|1972|true|1|Simon Says|1|1972|false
+2|Playstation|1995|false|2|Final Fantasy VII|2|1997|true
+3|Nintendo 64|1996|false|3|Super Mario 64|3|1996|false
+4|Xbox One|2013|true|4|Just Cause 3|4|2016|true
+
+4.
+SELECT console_name, game_name FROM consoles, games WHERE consoles.id = games.console_id;
+Magnavox Odyssey|Simon Says
+Playstation|Final Fantasy VII
+Nintendo 64|Super Mario 64
+Xbox One|Just Cause 3
+
+5.
+ DELETE FROM games WHERE cross_platform="true";
+sqlite> SELECT * FROM consoles, games WHERE consoles.id = games.console_id;
+1|Magnavox Odyssey|1972|true|1|Simon Says|1|1972|false
+3|Nintendo 64|1996|false|3|Super Mario 64|3|1996|false
